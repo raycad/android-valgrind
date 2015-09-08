@@ -6,7 +6,7 @@ Instructions for automatically detect memory management, threading bugs and prof
 
 2. Go to the Android profiler stuff's folder
 
-	$ cd [install_android_valgrind]	
+	$ cd [android-valgrind]	
 
 3. Install Android valgrind to the device
 
