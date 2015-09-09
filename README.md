@@ -12,7 +12,7 @@ Instructions for automatically detect memory management, threading bugs and prof
 
 	$ ./install_android_valgrind.sh
 
-4. Copy files to the device, start valgrind and launch the specific package in the device
+4. Copy and start the specific package with valgrind in the device
 
 	$ ./bootstrap_valgrind.sh
 
@@ -30,4 +30,8 @@ Install KCachegrind on Ubuntu to view the file outputs
 	
 	$ kcachegrind
 
-Then select the outputs to view the information.	
+Then select the outputs to view the information.
+
+6. Make sure Valgrind is running on the device
+
+	$ adb shell "top | grep valgrind"
