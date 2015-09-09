@@ -24,13 +24,13 @@ Instructions for automatically detect memory management, threading bugs and prof
 
 5. See outputs
 
-Install KCachegrind on Ubuntu to view the file outputs
+	Install KCachegrind on Ubuntu to view the file outputs
 
 	$ sudo apt-get install kcachegrind
 	
 	$ kcachegrind
 
-Then select the outputs to view the information.
+	Then select the outputs to view the information.
 
 6. Make sure Valgrind is running on the device
 
