@@ -39,6 +39,10 @@ Instructions for automatically detect memory management, threading bugs and prof
 
 	All applications will run very slowly when valgrind service is running so you need to restart device to refresh the device. Or you can stop the Valgrind and reset property by using the following command:
 
+	$ adb shell "setprop wrap.[PACKAGE] ''"
+
+	E.g:
+	
 	$ adb shell "setprop wrap.com.harman.lync ''"
 
 	$ adb shell "kill -9 [valgrind_pid]"
