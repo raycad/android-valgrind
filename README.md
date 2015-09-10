@@ -16,23 +16,48 @@ Instructions for automatically detect memory management, threading bugs and prof
 
 	$ ./bootstrap_valgrind.sh
 
-	NOTE: 
+	NOTES: 
+
 	- You need to change the "PACKAGE" to your package name in both 2 script files: bootstrap_valgrind.sh and start_valgrind.sh
+
 	- Change the output file path name from the script start_valgrind.sh
+
 	- Change to use Callgrind or Memcheck tools from the script start_valgrind.sh
+
+	- Change a tool from the script start_valgrind.sh
+
+		# Memcheck tool: a memory error detector
+
+		# Massif tool: a heap profiler
+
+		# Callgrind tool: a cache and branch-prediction profiler
+
+		# Helgrind tool: a thread error detector
+
+		# DHAT: a dynamic heap analysis tool
 
 	The log files of the example will be created at /sdcard/enzo_lync_profiles on the Android device.
 
 5. See outputs
 
-	Install KCachegrind on Ubuntu to view the file outputs
+	- Install massif-visualizer to view massif logs on Ubuntu
 
-	$ sudo apt-get install kcachegrind
+		$ sudo add-apt-repository ppa:kubuntu-ppa/backports 
+
+		$ sudo apt-get update
+
+		$ sudo apt-get install massif-visualizer
+
+		$ massif-visualizer
+
+	- Install KCachegrind to view Cachegrind logs on Ubuntu
+
+		$ sudo apt-get install kcachegrind
+
+		$ kcachegrind
+
+	If you have problems in viewing logs using those valgrind viewers you can open the log files using any text editor to trace the information.
 	
-	$ kcachegrind
-
-	Then select the outputs to view the information.
-
 6. Make sure Valgrind is running on the device
 
 	$ adb shell "top | grep valgrind"
