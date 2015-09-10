@@ -26,15 +26,15 @@ Instructions for automatically detect memory management, threading bugs and prof
 
 	- Change a tool from the script start_valgrind.sh
 
-		# Memcheck tool: a memory error detector
+		Memcheck tool: a memory error detector
 
-		# Massif tool: a heap profiler
+		Massif tool: a heap profiler
 
-		# Callgrind tool: a cache and branch-prediction profiler
+		Callgrind tool: a cache and branch-prediction profiler
 
-		# Helgrind tool: a thread error detector
+		Helgrind tool: a thread error detector
 
-		# DHAT: a dynamic heap analysis tool
+		DHAT: a dynamic heap analysis tool
 
 	The log files of the example will be created at /sdcard/enzo_lync_profiles on the Android device.
 
@@ -57,7 +57,7 @@ Instructions for automatically detect memory management, threading bugs and prof
 		$ kcachegrind
 
 	If you have problems in viewing logs using those valgrind viewers you can open the log files using any text editor to trace the information.
-	
+
 6. Make sure Valgrind is running on the device
 
 	$ adb shell "top | grep valgrind"
