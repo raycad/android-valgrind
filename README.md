@@ -12,31 +12,27 @@ Instructions for automatically detect memory management, threading bugs and prof
 
 	$ ./install_android_valgrind.sh
 
-4. Copy and start the specific package with Valgrind in the device
+4. Copy and start the specific package with Valgrind on the device
 
-	$ ./bootstrap_valgrind.sh
+	$ ./start_valgrind.sh [app package name]
 
 	NOTES: 
 
-	- You need to change the "PACKAGE" to your package name in both 2 script files: bootstrap_valgrind.sh and start_valgrind.sh
+	- Change the activity to run at launch with `-a [ActivityName]`
 
-	- Change the output file path name from the script start_valgrind.sh
+	- Change the log output path on the Android device with `-l [path]`. They are saved to /sdcard/profiles by default.
 
-	- Change to use Callgrind or Memcheck tools from the script start_valgrind.sh
+    - Change the Valgrind tool with `-t [toolname]`, where toolname is one of:
 
-	- Change a tool from the script start_valgrind.sh
+		`memcheck`: a memory error detector
 
-		Memcheck tool: a memory error detector
+		`massif`: a heap profiler
 
-		Massif tool: a heap profiler
+		`callgrind`: a cache and branch-prediction profiler
 
-		Callgrind tool: a cache and branch-prediction profiler
+		`helgrind`: a thread error detector
 
-		Helgrind tool: a thread error detector
-
-		DHAT: a dynamic heap analysis tool
-
-	The log files of the example will be created at /sdcard/enzo_lync_profiles on the Android device.
+		`dhat`: a dynamic heap analysis tool
 
 5. See outputs
 
@@ -62,7 +58,7 @@ Instructions for automatically detect memory management, threading bugs and prof
 
 	$ adb shell "top | grep valgrind"
 
-	All applications will run very slowly when valgrind service is running so you need to restart device to refresh the device. Or you can stop the Valgrind and reset property by using the following command:
+    Valgrind will be terminated when `./start_valgrind.sh` is stopped, but it can otherwise be removed from the app by removing the wrap property and killing the Valgrind process:
 
 	$ adb shell "setprop wrap.[PACKAGE] ''"
 
